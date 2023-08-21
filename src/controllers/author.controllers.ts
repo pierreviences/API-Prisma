@@ -53,12 +53,31 @@ export const createAuthor = async (
       data: authorData,
     });
 
-    res.status(200).json({ data: author });
+    res.status(201).json({ data: author });
   } catch (error) {
     console.log(error);
   }
 };
 
 // update Author
+export const updateController = async (
+  req: express.Request,
+  res: express.Response
+) => {
+  try {
+    const authorId = req.params.id;
+    const authorData = req.body;
+    const author = await authorClient.update({
+      where: {
+        id: authorId,
+      },
+      data: authorData,
+    });
+
+    res.status(200).json({ data: author });
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 // delete Author

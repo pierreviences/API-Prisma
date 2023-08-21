@@ -81,3 +81,22 @@ export const updateController = async (
 };
 
 // delete Author
+export const deleteController = async (
+  req: express.Request,
+  res: express.Response
+) => {
+  try {
+    const authorId = req.params.id;
+    const author = await authorClient.delete({
+      where: {
+        id: authorId,
+      },
+    });
+
+    res.status(200).json({
+      data: {},
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};

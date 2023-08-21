@@ -1,7 +1,7 @@
 import express from "express";
 const app = express();
 
-import authorRouter from "routes/author.router";
+import authorRouter from "./routes/author.router";
 
 const port = process.env.PORT || 8080;
 

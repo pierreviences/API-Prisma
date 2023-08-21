@@ -21,6 +21,26 @@ export const getAllAuthors = async (
 };
 
 // get Author By Id
+export const getAuthorById = async (
+  req: express.Request,
+  res: express.Response
+) => {
+  try {
+    const authorId = req.params.id;
+    const author = await authorClient.findUnique({
+      where: {
+        id: authorId,
+      },
+      include: {
+        books: true,
+      },
+    });
+
+    res.status(200).json({ data: author });
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 // create Author
 

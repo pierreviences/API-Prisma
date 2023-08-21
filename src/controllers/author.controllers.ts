@@ -60,7 +60,7 @@ export const createAuthor = async (
 };
 
 // update Author
-export const updateController = async (
+export const updateAuthor = async (
   req: express.Request,
   res: express.Response
 ) => {
@@ -81,7 +81,7 @@ export const updateController = async (
 };
 
 // delete Author
-export const deleteController = async (
+export const deleteAuthor = async (
   req: express.Request,
   res: express.Response
 ) => {
@@ -94,6 +94,7 @@ export const deleteController = async (
     });
 
     res.status(200).json({
+      message: "Berhasil",
       data: {},
     });
   } catch (error) {
